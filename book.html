@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center mb-4">Book Tickets for <span class="text-info">{{ movie.title }}</span></h2>
+
+<form method="POST" class="mx-auto bg-dark p-4 rounded shadow" style="max-width: 400px;">
+    <div class="mb-3">
+        <label class="form-label">Your Name</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Number of Seats</label>
+        <input type="number" name="seats" min="1" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+</form>
+
+<div class="text-center mt-3">
+    <a href="{{ url_for('movies') }}" class="text-light">⬅ Back to Movies</a>
+</div>
+{% endblock %}
+

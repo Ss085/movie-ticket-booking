@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center mb-4">All Bookings</h2>
+
+{% if bookings %}
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-dark align-middle">
+    <thead>
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Movie</th>
+            <th>Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr class="text-center">
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.movie.title }}</td>
+            <td>{{ booking.seats }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p class="text-center fs-5">No bookings yet.</p>
+{% endif %}
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('index') }}" class="text-light">⬅ Back to Home</a>
+</div>
+{% endblock %}
+

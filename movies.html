@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4 text-center">Now Showing</h2>
+
+{% if movies %}
+<div class="row">
+    {% for movie in movies %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow text-center p-3">
+            <h4 class="fw-bold">{{ movie.title }}</h4>
+            <p>Released in {{ movie.year }}</p>
+            <a href="{{ url_for('book', movie_id=movie.id) }}" class="btn btn-primary mt-2">Book Now</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center">
+    <p class="fs-5">No movies found in the database.</p>
+</div>
+{% endif %}
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('index') }}" class="text-light">⬅ Back to Home</a>
+</div>
+{% endblock %}
+
